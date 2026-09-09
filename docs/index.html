@@ -217,24 +217,28 @@
       <!-- Desktop Nav Items -->
       <nav
         class="hidden xl:flex items-center gap-1 bg-obsidian-900/80 p-1.5 rounded-full border border-white/10 shadow-inner">
-        <a href="#visualizer"
-          class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-slate-300 hover:text-gold-300 hover:bg-white/5 transition-all">
+        <a href="#hero" data-nav-link="desktop"
+          class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-slate-300 hover:text-gold-300 hover:bg-white/5 transition-all border border-transparent">
+          <i data-lucide="home" class="w-3.5 h-3.5 text-slate-400"></i> Overview
+        </a>
+        <a href="#visualizer" data-nav-link="desktop"
+          class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-slate-300 hover:text-gold-300 hover:bg-white/5 transition-all border border-transparent">
           <i data-lucide="compass" class="w-3.5 h-3.5 text-slate-400"></i> Explorer
         </a>
-        <a href="#catalog"
-          class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-slate-300 hover:text-gold-300 hover:bg-white/5 transition-all">
+        <a href="#catalog" data-nav-link="desktop"
+          class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-slate-300 hover:text-gold-300 hover:bg-white/5 transition-all border border-transparent">
           <i data-lucide="flame" class="w-3.5 h-3.5 text-slate-400"></i> Vault
         </a>
-        <a href="#box-builder"
-          class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-slate-300 hover:text-gold-300 hover:bg-white/5 transition-all">
+        <a href="#box-builder" data-nav-link="desktop"
+          class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-slate-300 hover:text-gold-300 hover:bg-white/5 transition-all border border-transparent">
           <i data-lucide="box" class="w-3.5 h-3.5 text-slate-400"></i> Custom Box
         </a>
-        <a href="#doneness"
-          class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-slate-300 hover:text-gold-300 hover:bg-white/5 transition-all">
+        <a href="#doneness" data-nav-link="desktop"
+          class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-slate-300 hover:text-gold-300 hover:bg-white/5 transition-all border border-transparent">
           <i data-lucide="thermometer" class="w-3.5 h-3.5 text-slate-400"></i> Doneness Guide
         </a>
-        <a href="#traceability"
-          class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-slate-300 hover:text-gold-300 hover:bg-white/5 transition-all">
+        <a href="#traceability" data-nav-link="desktop"
+          class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-slate-300 hover:text-gold-300 hover:bg-white/5 transition-all border border-transparent">
           <i data-lucide="shield-check" class="w-3.5 h-3.5 text-slate-400"></i> Traceability
         </a>
       </nav>
@@ -249,13 +253,13 @@
         </div>
 
         <!-- Mobile Search Button -->
-        <button onclick="toggleMobileSearch()"
-          class="sm:hidden p-2 rounded-xl bg-obsidian-900 border border-white/10 text-slate-300 hover:text-gold-300">
+        <button onclick="toggleMobileSearch()" aria-label="Toggle Search"
+          class="sm:hidden p-2.5 rounded-xl bg-obsidian-900 border border-white/10 text-slate-300 hover:text-gold-300">
           <i data-lucide="search" class="w-5 h-5"></i>
         </button>
 
         <!-- Cart Button -->
-        <button onclick="toggleCartDrawer(true)"
+        <button onclick="toggleCartDrawer(true)" aria-label="Open Cart"
           class="relative p-3 rounded-2xl bg-gradient-to-br from-obsidian-800 via-obsidian-900 to-obsidian-950 border border-gold-500/40 text-gold-300 flex items-center gap-2 shadow-3d-depth hover:scale-105 transition-all">
           <i data-lucide="shopping-bag" class="w-5 h-5 text-gold-300"></i>
           <span class="hidden md:inline text-xs font-bold text-slate-200">Cart</span>
@@ -263,45 +267,21 @@
             class="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-crimson-600 text-white font-bold text-[10px] shadow-glow-crimson border border-white/40">1</span>
         </button>
 
-        <!-- Mobile Menu Toggle -->
-        <button onclick="toggleMobileMenu()"
-          class="xl:hidden p-2 rounded-xl bg-obsidian-900 border border-white/10 text-slate-300 hover:text-gold-300">
+        <!-- Mobile Side Menu Toggle -->
+        <button onclick="toggleMobileMenu(true)" aria-label="Open navigation menu"
+          class="xl:hidden p-2.5 rounded-xl bg-gradient-to-br from-obsidian-800 to-obsidian-900 border border-gold-500/40 text-gold-300 hover:text-white shadow-3d-depth hover:scale-105 transition-all flex items-center justify-center">
           <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
       </div>
     </div>
 
-    <!-- Mobile Search Bar Drawer -->
+    <!-- Mobile Search Bar Dropdown -->
     <div id="mobileSearchBar" class="hidden sm:hidden px-4 pb-3 pt-1 border-t border-white/10 bg-obsidian-900">
       <div class="relative flex items-center">
         <input type="text" placeholder="Search Wagyu & Artisanal Cuts..." oninput="handleSearch(this.value)"
           class="w-full bg-obsidian-950 border border-gold-500/40 rounded-xl py-2 pl-9 pr-4 text-xs text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-gold-400" />
         <i data-lucide="search" class="w-4 h-4 text-gold-400 absolute left-3 pointer-events-none"></i>
       </div>
-    </div>
-
-    <!-- Mobile Navigation Drawer -->
-    <div id="mobileNavDrawer" class="hidden xl:hidden bg-obsidian-900 border-b border-gold-500/20 px-4 py-4 space-y-2">
-      <a href="#visualizer" onclick="toggleMobileMenu()"
-        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-crimson-900/40 hover:text-gold-300">
-        <i data-lucide="compass" class="w-4 h-4 text-gold-400"></i> Explorer
-      </a>
-      <a href="#catalog" onclick="toggleMobileMenu()"
-        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-crimson-900/40 hover:text-gold-300">
-        <i data-lucide="flame" class="w-4 h-4 text-gold-400"></i> Vault
-      </a>
-      <a href="#box-builder" onclick="toggleMobileMenu()"
-        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-crimson-900/40 hover:text-gold-300">
-        <i data-lucide="box" class="w-4 h-4 text-gold-400"></i> Custom Box
-      </a>
-      <a href="#doneness" onclick="toggleMobileMenu()"
-        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-crimson-900/40 hover:text-gold-300">
-        <i data-lucide="thermometer" class="w-4 h-4 text-gold-400"></i> Doneness Guide
-      </a>
-      <a href="#traceability" onclick="toggleMobileMenu()"
-        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-crimson-900/40 hover:text-gold-300">
-        <i data-lucide="shield-check" class="w-4 h-4 text-gold-400"></i> Traceability
-      </a>
     </div>
   </header>
 
@@ -1054,6 +1034,98 @@
     </div>
   </footer>
 
+  <!-- ==================== MOBILE NAVIGATION SLIDE-OVER DRAWER ==================== -->
+  <div id="mobileNavOverlay" onclick="toggleMobileMenu(false)"
+    class="hidden fixed inset-0 bg-black/80 backdrop-blur-md z-[60] transition-opacity duration-300 opacity-0"></div>
+  <div id="mobileNavDrawer"
+    class="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-obsidian-950 border-l border-gold-500/30 z-[60] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col shadow-2xl">
+    
+    <!-- Mobile Drawer Header -->
+    <div class="p-5 border-b border-white/10 flex items-center justify-between bg-obsidian-900/60">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-obsidian-800 via-obsidian-900 to-obsidian-950 p-1.5 border border-gold-500/40 shadow-3d-depth flex items-center justify-center">
+          <i data-lucide="flame" class="w-5 h-5 text-gold-400"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-base font-black font-display tracking-widest text-gold-gradient">PRIME CUT</span>
+          <span class="text-[8px] uppercase tracking-widest text-slate-400 font-semibold">Artisan Butchery Vault</span>
+        </div>
+      </div>
+      <button onclick="toggleMobileMenu(false)" aria-label="Close navigation menu"
+        class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Search input inside drawer -->
+    <div class="px-4 pt-4 pb-2">
+      <div class="relative flex items-center">
+        <input type="text" placeholder="Search Wagyu & Artisanal Cuts..." oninput="handleSearch(this.value)"
+          class="w-full bg-obsidian-900 border border-gold-500/30 rounded-xl py-2.5 pl-9 pr-4 text-xs text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-gold-400" />
+        <i data-lucide="search" class="w-4 h-4 text-gold-400 absolute left-3 pointer-events-none"></i>
+      </div>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="flex-1 overflow-y-auto px-4 py-3 space-y-2">
+      <p class="text-[10px] font-bold uppercase tracking-widest text-gold-400 px-2 pt-1">Menu Sections</p>
+      <a href="#hero" data-nav-link="mobile" onclick="toggleMobileMenu(false)"
+        class="flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-white/5 hover:text-gold-300 transition-all border border-transparent">
+        <div class="flex items-center gap-3">
+          <i data-lucide="home" class="w-4 h-4 text-slate-400"></i> Overview
+        </div>
+        <span class="active-dot hidden w-2 h-2 rounded-full bg-gold-400 shadow-glow-gold"></span>
+      </a>
+      <a href="#visualizer" data-nav-link="mobile" onclick="toggleMobileMenu(false)"
+        class="flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-white/5 hover:text-gold-300 transition-all border border-transparent">
+        <div class="flex items-center gap-3">
+          <i data-lucide="compass" class="w-4 h-4 text-slate-400"></i> Explorer
+        </div>
+        <span class="active-dot hidden w-2 h-2 rounded-full bg-gold-400 shadow-glow-gold"></span>
+      </a>
+      <a href="#catalog" data-nav-link="mobile" onclick="toggleMobileMenu(false)"
+        class="flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-white/5 hover:text-gold-300 transition-all border border-transparent">
+        <div class="flex items-center gap-3">
+          <i data-lucide="flame" class="w-4 h-4 text-slate-400"></i> Vault
+        </div>
+        <span class="active-dot hidden w-2 h-2 rounded-full bg-gold-400 shadow-glow-gold"></span>
+      </a>
+      <a href="#box-builder" data-nav-link="mobile" onclick="toggleMobileMenu(false)"
+        class="flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-white/5 hover:text-gold-300 transition-all border border-transparent">
+        <div class="flex items-center gap-3">
+          <i data-lucide="box" class="w-4 h-4 text-slate-400"></i> Custom Box
+        </div>
+        <span class="active-dot hidden w-2 h-2 rounded-full bg-gold-400 shadow-glow-gold"></span>
+      </a>
+      <a href="#doneness" data-nav-link="mobile" onclick="toggleMobileMenu(false)"
+        class="flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-white/5 hover:text-gold-300 transition-all border border-transparent">
+        <div class="flex items-center gap-3">
+          <i data-lucide="thermometer" class="w-4 h-4 text-slate-400"></i> Doneness Guide
+        </div>
+        <span class="active-dot hidden w-2 h-2 rounded-full bg-gold-400 shadow-glow-gold"></span>
+      </a>
+      <a href="#traceability" data-nav-link="mobile" onclick="toggleMobileMenu(false)"
+        class="flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-white/5 hover:text-gold-300 transition-all border border-transparent">
+        <div class="flex items-center gap-3">
+          <i data-lucide="shield-check" class="w-4 h-4 text-slate-400"></i> Traceability
+        </div>
+        <span class="active-dot hidden w-2 h-2 rounded-full bg-gold-400 shadow-glow-gold"></span>
+      </a>
+    </div>
+
+    <!-- Mobile Drawer Footer Actions -->
+    <div class="p-4 border-t border-white/10 bg-obsidian-900/80 space-y-2.5">
+      <button onclick="toggleMobileMenu(false); toggleCartDrawer(true);"
+        class="w-full py-3 rounded-xl bg-obsidian-950 hover:bg-obsidian-800 text-gold-300 font-bold text-xs flex items-center justify-center gap-2 border border-gold-500/30 shadow-3d-depth">
+        <i data-lucide="shopping-bag" class="w-4 h-4"></i> View Cart & Checkout
+      </button>
+      <a href="#box-builder" onclick="toggleMobileMenu(false)"
+        class="w-full py-3 rounded-xl bg-gradient-to-r from-crimson-600 to-crimson-800 text-white font-bold text-xs uppercase tracking-wider shadow-glow-crimson flex items-center justify-center gap-2">
+        Build Custom Box
+      </a>
+    </div>
+  </div>
+
   <!-- ==================== CART SLIDE-OVER DRAWER ==================== -->
   <div id="cartOverlay" onclick="toggleCartDrawer(false)"
     class="hidden fixed inset-0 bg-black/70 backdrop-blur-md z-50 transition-opacity"></div>
@@ -1144,13 +1216,14 @@
     let cart = [{ ...PRODUCTS[0], quantity: 1, customAging: 21, customThickness: 1.5, calculatedPrice: 189 }];
     let activeBoxPresetPrice = 199;
 
-    // Initialize Lucide Icons
+    // Initialize Lucide Icons & Components
     document.addEventListener('DOMContentLoaded', () => {
       lucide.createIcons();
       renderVisualizerList();
       filterCategory('all');
       renderBoxCutsList();
       updateCartDrawerUI();
+      updateScrollspy();
 
       // Countdown Timer Logic
       let hours = 4, minutes = 28, seconds = 45;
@@ -1162,22 +1235,106 @@
         document.getElementById('timerSeconds').textContent = String(seconds).padStart(2, '0') + 's';
       }, 1000);
 
-      // Back to Top Scroll Event Listener
+      // Scroll Event Listener for Back to Top & Scrollspy Highlighting
       window.addEventListener('scroll', () => {
         const btn = document.getElementById('backToTopBtn');
         if (window.scrollY > 300) btn.classList.remove('hidden');
         else btn.classList.add('hidden');
-      });
+        
+        updateScrollspy();
+      }, { passive: true });
     });
 
-    // Mobile Header Controls
-    function toggleMobileMenu() {
-      const el = document.getElementById('mobileNavDrawer');
-      el.classList.toggle('hidden');
+    // Section Scrollspy Active Nav Highlighting
+    const sectionIds = ['hero', 'visualizer', 'catalog', 'box-builder', 'doneness', 'traceability'];
+
+    function updateScrollspy() {
+      const headerOffset = 130;
+      const scrollPosition = window.scrollY + headerOffset;
+      let currentSectionId = 'hero';
+
+      for (let i = 0; i < sectionIds.length; i++) {
+        const sec = document.getElementById(sectionIds[i]);
+        if (sec) {
+          const top = sec.offsetTop;
+          const height = sec.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            currentSectionId = sectionIds[i];
+            break;
+          }
+        }
+      }
+
+      if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 50)) {
+        currentSectionId = sectionIds[sectionIds.length - 1];
+      }
+
+      const allLinks = document.querySelectorAll('a[data-nav-link]');
+      allLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href) return;
+        const targetId = href.replace('#', '');
+        const isDesktop = link.dataset.navLink === 'desktop';
+
+        if (targetId === currentSectionId) {
+          if (isDesktop) {
+            link.className = "flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold text-white bg-gradient-to-r from-crimson-600 to-crimson-800 shadow-glow-crimson border border-crimson-400/60 scale-105 transition-all";
+            const icon = link.querySelector('i');
+            if (icon) icon.className = 'w-3.5 h-3.5 text-gold-300';
+          } else {
+            link.className = "flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-crimson-900/90 via-obsidian-900 to-obsidian-950 border border-gold-400 shadow-glow-crimson transition-all";
+            const icon = link.querySelector('i');
+            if (icon) icon.className = 'w-4 h-4 text-gold-300';
+            const activeDot = link.querySelector('.active-dot');
+            if (activeDot) activeDot.classList.remove('hidden');
+          }
+        } else {
+          if (isDesktop) {
+            link.className = "flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-slate-300 hover:text-gold-300 hover:bg-white/5 transition-all border border-transparent";
+            const icon = link.querySelector('i');
+            if (icon) icon.className = 'w-3.5 h-3.5 text-slate-400';
+          } else {
+            link.className = "flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold text-slate-300 hover:bg-white/5 hover:text-gold-300 transition-all border border-transparent";
+            const icon = link.querySelector('i');
+            if (icon) icon.className = 'w-4 h-4 text-slate-400';
+            const activeDot = link.querySelector('.active-dot');
+            if (activeDot) activeDot.classList.add('hidden');
+          }
+        }
+      });
     }
+
+    // Mobile Header Controls (Side Drawer Slide-out)
+    function toggleMobileMenu(open) {
+      const overlay = document.getElementById('mobileNavOverlay');
+      const drawer = document.getElementById('mobileNavDrawer');
+      if (!overlay || !drawer) return;
+
+      const isOpen = open !== undefined ? open : drawer.classList.contains('translate-x-full');
+
+      if (isOpen) {
+        overlay.classList.remove('hidden');
+        void overlay.offsetWidth;
+        overlay.classList.remove('opacity-0');
+        overlay.classList.add('opacity-100');
+        drawer.classList.remove('translate-x-full');
+        document.body.classList.add('overflow-hidden');
+      } else {
+        overlay.classList.remove('opacity-100');
+        overlay.classList.add('opacity-0');
+        drawer.classList.add('translate-x-full');
+        document.body.classList.remove('overflow-hidden');
+        setTimeout(() => {
+          if (overlay.classList.contains('opacity-0')) {
+            overlay.classList.add('hidden');
+          }
+        }, 300);
+      }
+    }
+
     function toggleMobileSearch() {
       const el = document.getElementById('mobileSearchBar');
-      el.classList.toggle('hidden');
+      if (el) el.classList.toggle('hidden');
     }
 
     // 3D Visualizer Studio Logic
